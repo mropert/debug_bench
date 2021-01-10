@@ -7,13 +7,12 @@
 
 BENCHMARK_MAIN();
 
-
 namespace bench_impl
 {
-	std::vector<int> generate_input()
+	internal_input generate_input()
 	{
-		std::vector<int> v( 10000 );
-		std::iota(begin(v), end(v), 0);
-		return v;
+		internal_input i(10000);
+		std::iota(begin(i), end(i), 0);
+		return i;
 	}
 }

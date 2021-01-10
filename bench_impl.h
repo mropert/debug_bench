@@ -4,18 +4,20 @@
 
 namespace bench_impl
 {
+	using internal_input = std::vector<int>;
+
 	// Do not pass STL types as input or output, as ABI may differ
 	struct input
 	{
-		input(const std::vector<int>& v)
-			: m_first(v.data())
-			, m_last(v.data() + v.size())
+		input(internal_input& i)
+			: first(i.data())
+			, last(i.data() + i.size())
 		{}
 
-		const int* m_first;
-		const int* m_last;
+		const int* first;
+		const int* last;
 	};
 	using output = int;
 
-	std::vector<int> generate_input();
+	internal_input generate_input();
 }
